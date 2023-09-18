@@ -1,0 +1,15 @@
+import re
+
+with open('Example_Regex.txt', 'rb') as f:
+  content = f.read()
+
+  # Tìm encoding theo các ký tự đặc trưng 
+  encodings = ['utf-8', 'utf-16', 'latin1', 'cp1252']
+
+  for enc in encodings:
+    try:
+      content.decode(enc)
+      print(enc)
+      break
+    except UnicodeDecodeError:
+      pass
